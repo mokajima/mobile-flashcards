@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { receiveDecks } from '../actions'
 import Deck from './Deck'
@@ -33,12 +33,17 @@ class DecksList extends Component {
   }
 
   render() {
-    const { decks } = this.props
+    const { decks, navigation } = this.props
 
     return (
       <View>
         {Object.keys(decks).map((title) => (
-          <Deck key={title} title={title} />
+          <TouchableOpacity
+            key={title}
+            onPress={() => navigation.navigate('DeckPage', { title })}
+          >
+            <Deck title={title} />
+          </TouchableOpacity>
         ))}
       </View>
     )

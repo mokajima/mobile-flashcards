@@ -11,7 +11,7 @@ class NewCard extends Component {
 
   handleSubmit = () => {
     const { question, answer } = this.state
-    const { title } = this.props
+    const { title, goBack } = this.props
 
     this.props.dispatch(addCard(title, {
       question,
@@ -22,6 +22,8 @@ class NewCard extends Component {
       question: '',
       answer: ''
     })
+
+    goBack()
   }
 
   render() {
@@ -47,4 +49,13 @@ class NewCard extends Component {
   }
 }
 
-export default connect()(NewCard)
+function mapStateToProps(decks, { navigation }) {
+  const { title } = navigation.state.params
+
+  return {
+    title,
+    goBack: () => navigation.goBack()
+  }
+}
+
+export default connect(mapStateToProps)(NewCard)

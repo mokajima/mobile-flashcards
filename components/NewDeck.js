@@ -16,6 +16,8 @@ class NewDeck extends Component {
     this.setState({
       title: ''
     })
+
+    this.props.navigation.navigate('DeckPage', { title })
   }
 
   render() {
