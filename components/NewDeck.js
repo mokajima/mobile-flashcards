@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
+import { saveDeckTitle } from '../utils/api'
 
 class NewDeck extends Component {
   state = {
@@ -18,6 +19,8 @@ class NewDeck extends Component {
     })
 
     this.props.navigation.navigate('DeckPage', { title })
+
+    saveDeckTitle(title)
   }
 
   render() {

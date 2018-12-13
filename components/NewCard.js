@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { addCard } from '../actions/'
+import { addCardToDeck } from '../utils/api'
 
 class NewCard extends Component {
   state = {
@@ -13,10 +14,12 @@ class NewCard extends Component {
     const { question, answer } = this.state
     const { title, goBack } = this.props
 
-    this.props.dispatch(addCard(title, {
+    const card = {
       question,
       answer
-    }))
+    }
+
+    this.props.dispatch(addCard(title, card))
 
     this.setState({
       question: '',
@@ -24,6 +27,7 @@ class NewCard extends Component {
     })
 
     goBack()
+    addCardToDeck(title, card)
   }
 
   render() {
