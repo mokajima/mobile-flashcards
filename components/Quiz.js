@@ -2,11 +2,17 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import TextButton from './TextButton'
+import { setLocalNotification, clearLocalNotification } from '../utils/helpers'
 
 class Quiz extends Component {
   state = {
     answers: [],
     showAnswer: false
+  }
+
+  componentDidMount() {
+    clearLocalNotification()
+      .then(setLocalNotification)
   }
 
   toggleAnswer = () => {
