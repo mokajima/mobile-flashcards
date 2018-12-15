@@ -15,12 +15,18 @@ class Quiz extends Component {
       .then(setLocalNotification)
   }
 
+  /**
+   * @description Show or hide the answer
+   */
   toggleAnswer = () => {
     this.setState((state) => ({
       showAnswer: !state.showAnswer
     }))
   }
 
+  /**
+   * @description Mark as "correct"
+   */
   handleCorrectAnswer = () => {
     this.setState((state) => ({
       answers: state.answers.concat(1),
@@ -28,6 +34,9 @@ class Quiz extends Component {
     }))
   }
 
+  /**
+   * @description Mark as "incorrect"
+   */
   handleIncorrectAnswer = () => {
     this.setState((state) => ({
       answers: state.answers.concat(0),
@@ -35,6 +44,9 @@ class Quiz extends Component {
     }))
   }
 
+  /**
+   * @description Reset the quizzes
+   */
   reset = () => {
     this.setState({
       answers: [],

@@ -11,6 +11,9 @@ class NewCard extends Component {
     answer: ''
   }
 
+  /**
+   * @description Add the card to the deck
+   */
   handleSubmit = () => {
     const { question, answer } = this.state
     const { title, goBack } = this.props

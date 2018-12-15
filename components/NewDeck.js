@@ -10,6 +10,9 @@ class NewDeck extends Component {
     title: ''
   }
 
+  /**
+   * @description Add the deck to the decks
+   */
   handleSubmit = () => {
     const { title } = this.state
 
