@@ -10,11 +10,6 @@ class Quiz extends Component {
     showAnswer: false
   }
 
-  componentDidMount() {
-    clearLocalNotification()
-      .then(setLocalNotification)
-  }
-
   /**
    * @description Show or hide the answer
    */
@@ -69,6 +64,10 @@ class Quiz extends Component {
     }
 
     if (answers.length === deck.questions.length) {
+
+      clearLocalNotification()
+        .then(setLocalNotification)
+
       return (
         <View style={[styles.container, {paddingTop: 50}]}>
           <View>
