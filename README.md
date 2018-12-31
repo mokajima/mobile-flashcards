@@ -2,6 +2,8 @@
 
 "Mobile Flashcards" is a mobile application for iOS that allows users to study collections of flashcards.
 
+![Screenshot](https://mokajima.github.io/portfolio/images/mobile-flashcards.jpg)
+
 ## Dependencies
 
 - [React](https://github.com/facebook/react)
