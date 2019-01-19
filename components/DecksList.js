@@ -32,20 +32,6 @@ class DecksList extends Component {
         />
       </View>
     )
-
-    return (
-      <View style={styles.container}>
-        {Object.keys(decks).map((title) => (
-          <TouchableOpacity
-            key={title}
-            onPress={() => navigation.navigate('DeckPage', { title })}
-            style={styles.deck}
-          >
-            <Deck title={title} />
-          </TouchableOpacity>
-        ))}
-      </View>
-    )
   }
 }
 
