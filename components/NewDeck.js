@@ -15,6 +15,12 @@ class NewDeck extends Component {
    */
   handleSubmit = () => {
     const { title } = this.state
+    const { decks } = this.props
+
+    if (title in decks && decks.hasOwnProperty(title)) {
+      alert(`"${title}" already exists.`)
+      return
+    }
 
     this.props.dispatch(addDeck(title))
 
@@ -75,4 +81,10 @@ const styles = StyleSheet.create({
   }
 })
 
-export default connect()(NewDeck)
+function mapStateToProps(decks) {
+  return {
+    decks
+  }
+}
+
+export default connect(mapStateToProps)(NewDeck)
