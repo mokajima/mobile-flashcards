@@ -11,6 +11,14 @@ class NewDeck extends Component {
   }
 
   /**
+   * @description Whether or not all form fields are filled
+   * @returns {bool}
+   */
+  isDisabled = () => {
+    return '' === this.state.title.trim()
+  }
+
+  /**
    * @description Add the deck to the decks
    */
   handleSubmit = () => {
@@ -46,8 +54,9 @@ class NewDeck extends Component {
         />
         <TextButton
           onPress={this.handleSubmit}
-          buttonStyle={{backgroundColor: '#15b394'}}
+          buttonStyle={{backgroundColor: this.isDisabled() ? '#bbbbbb' : '#15b394'}}
           labelStyle={{color: '#fff'}}
+          disabled={this.isDisabled()}
         >
           Create Deck
         </TextButton>

@@ -12,6 +12,15 @@ class NewCard extends Component {
   }
 
   /**
+   * @description Whether or not all form fields are filled
+   * @returns {bool}
+   */
+  isDisabled = () => {
+    const { question, answer } = this.state
+    return '' === question.trim() || '' === answer.trim()
+  }
+
+  /**
    * @description Add the card to the deck
    */
   handleSubmit = () => {
@@ -55,8 +64,9 @@ class NewCard extends Component {
         </View>
         <TextButton
           onPress={this.handleSubmit}
-          buttonStyle={{backgroundColor: '#15b394'}}
+          buttonStyle={{backgroundColor: this.isDisabled() ? '#bbbbbb' : '#15b394'}}
           labelStyle={{color: '#fff'}}
+          isDisabled={this.isDisabled()}
         >
           Submit
         </TextButton>

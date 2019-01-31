@@ -1,9 +1,13 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-function TextButton({ children, onPress, buttonStyle = {}, labelStyle = {} }) {
+function TextButton({ children, onPress, buttonStyle = {}, labelStyle = {}, disabled = false }) {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, buttonStyle]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.button, buttonStyle]}
+      disabled={disabled}
+    >
       <Text style={[styles.label, labelStyle]}>{children}</Text>
     </TouchableOpacity>
   )
