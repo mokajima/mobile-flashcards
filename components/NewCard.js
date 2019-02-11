@@ -95,12 +95,12 @@ const styles = StyleSheet.create({
   }
 })
 
-function mapStateToProps(decks, { navigation }) {
-  const { title } = navigation.state.params
+const mapStateToProps = (decks, ownProps) => {
+  const { title } = ownProps.navigation.state.params
 
   return {
     title,
-    goBack: () => navigation.goBack()
+    goBack: () => ownProps.navigation.goBack()
   }
 }
 
